@@ -13,6 +13,7 @@ import typings.antDesignIconsSvg.lockTwoToneMod.{default => LockTwoToneIcon}
 import typings.antDesignIconsSvg.mailTwoToneMod.{default => MailTwoToneIcon}
 import typings.antDesignIconsSvg.shopOutlinedMod.{default => ShopOutlinedIcon}
 import typings.antDesignIconsSvg.userOutlinedMod.{default => UserOutlinedIcon}
+import typings.antd.anon.Compare
 import typings.antd.antdStrings
 import typings.antd.components.{List => AntList, _}
 import typings.antd.notificationMod.{ArgsProps, IconType, default => Notification}
@@ -90,6 +91,7 @@ object CSS extends js.Any
             ColumnType[TableItem]()
               .setTitleReactElement("Name")
               .setDataIndex("name")
+              .setSorter(Compare((a: TableItem, b: TableItem, x) => a.name.compareTo(b.name), 1))
               .setKey("name")
               .setRender((_, tableItem, _) => Tag(tableItem.name).build),
             ColumnGroupType[TableItem](
